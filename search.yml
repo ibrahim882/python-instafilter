@@ -1,0 +1,65 @@
+credentials: ## данные для входа / небезопасно, можно что-то лучше придумать
+  data: ## аккаунты которые используются для парсинга данных
+    data_1: ## первый аккаунт
+      login: max.samedov ## логин
+      password: 123456m ## пароль
+    data_2:
+      login: max.samedov2
+      password: 123457o
+  actions: ## аккаунты от имени которых совершать действия
+    actions_1: ## первый аккаунт - единственный
+      login: traneblow
+      password: password
+
+accounts: ## аккаунты где брать людей
+  1: ## первый аккаунт откуда брать людей
+    nickname: redhead_hysteric ## ник в инстаграме
+    sources: ## откуда именно парсить людей
+      - following ## подписки
+      - followers ## подписчики
+    actions: ## что с ними делать
+      - like-and-follow ## несколько опций: like, follow, like-and-follow
+    ifLikes: ## при указанной необходимости лайкать
+      count: 3 ## сколько ставить лайков
+      which: popular ## где именно - популярные посты, последние посты
+  2: ## второй аккаунт откуда брать людей
+    nickname: marie.savenkova
+    sources:
+      - following
+    actions:
+      - like-and-follow
+    ifLikes:
+      count: 3
+      which: popular
+
+common: ## установки для всех аккаунтов
+  limitsPerHour: ## лимиты в час
+    follows: 10 ## подписки и отписки
+    likes: 20 ## лайки
+  gender: female ## пол
+  profilePic: 1 ## нужно ли проверять наличие аватарки
+  profilePicFaces: 0 ## необходимо ли наличие лиц на аватарке
+  isVerified: 0 ## есть ли галочка
+  isBusiness: 0 ## бизнес ли аккаунт
+  isPrivate: 0 ## приватный ли аккаунт
+  followers: ## мин и макс лимиты по подписчикам
+    min: 150
+    max: 900
+  following: ## мин и макс лимиты по подпискам
+    min: 80
+    max: 500
+  followingToFollowers: 0.5 ## максимальное ratio кол-ва подписок к подписчикам
+  lastPost: 2 months ## когда был опубликован последний пост (формат можно сделать лучше)
+  posts: ## мин и макс кол-во постов
+    min: 6
+  postsFaces: 2 ## сколько постов с наличием лица необходимо из 6 последних фото в профиле
+  age: ## возраст, пока не используется
+    min: 14
+    max: 23
+  locations: ## города откуда искать пользователей, пока не используется
+    - Saint Petesburg
+  stopFilters: ## местоположение фильтров стоп-слов
+    latin: ## латиница для поиска в нике и имени
+      - en_filter.txt
+    cyrillic: ## кириллица для поиска только в имени
+      - ru_filter.txt
